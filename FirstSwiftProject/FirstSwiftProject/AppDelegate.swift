@@ -82,7 +82,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let stringA = "\(var2) 乘于 \(const3) 等于 \(var3 * 100)"
         print( stringA )
         
+        print( stringA.count );
+        
+        for ch in "Runoob" {
+            print(ch)
+        }
+        
+        var someInts1 = [Int](repeating: 0, count: 3)
+        
+        var someInts2:[Int] = [10, 20, 30]
+        
+        var someInts3 = [Int](repeating: 10, count: 3)
+        for (i,item) in someInts3.enumerated() {
+            print( "index = \(i)  item = \(item)" )
+        }
+        
+        var someInts4 = [Int]()
+        someInts4.append(3)
+        print( someInts4 )
+        
+        let someDict1 = [String: String]()
+        
+        let someDict2:[String:String] = ["haha":"One", "heihei":"Two", "hehe":"Three"]
+        let two = someDict2["heihei"]
+        print( "key = heihei 的值为 \(someDict2["heihei"])" )
+        let someDict2Keys = someDict2.keys
+        let somedict2Values = someDict2.values;
+        print( "someDict2Keys = \(someDict2Keys)  someDict2Values = \(somedict2Values)" )
+        
+        print(runoob(site: "xxxx",name: "zzzz"))
+        
+        let bounds = minMax(array: [8, -6, 2, 109, 3, 71])
+        print("最小值为 \(bounds.min) ，最大值为 \(bounds.max)")
+        
         return true
+    }
+    
+    func runoob(site:String,name:String) -> String {
+        return site + name
+    }
+    
+    func minMax(array: [Int]) -> (min: Int, max: Int) {
+        var currentMin = array[0]
+        var currentMax = array[0]
+        for value in array[1..<array.count] {
+            if value < currentMin {
+                currentMin = value
+            } else if value > currentMax {
+                currentMax = value
+            }
+        }
+        return (currentMin, currentMax)
     }
 
     // MARK: UISceneSession Lifecycle
@@ -98,6 +148,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    
+
 
 
 }
